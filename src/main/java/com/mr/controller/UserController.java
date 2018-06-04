@@ -3,6 +3,8 @@ package com.mr.controller;
 import com.mr.model.User;
 import com.mr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by ydd on 2018/6/4.
  */
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -31,9 +33,10 @@ public class UserController {
 
 
     @RequestMapping("/user/list")
-    public Iterable<User> list(){
+    public String list(ModelMap map){
         Iterable<User> list = userService.list();
-        return list;
+        map.put("list",list);
+        return "list";
     }
 
     @RequestMapping("/user/del/{id}")
