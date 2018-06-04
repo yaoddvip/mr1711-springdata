@@ -1,0 +1,5 @@
+项目介绍：
+    1：该项目中的持久层框架使用的是springdata+jpa的框架
+    2：前台模板整合jsp
+        注意：使用jsp时，项目的类型必须使用war类型
+        添加webapp中WEB-INF 的web.xml文件
